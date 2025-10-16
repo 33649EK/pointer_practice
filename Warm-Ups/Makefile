@@ -7,7 +7,7 @@ BUILD   = builds
 ASM_DIR = assembly-files
 
 # Add program basenames here (each must have a matching .c)
-PROGS   = integer_rotation strlen_reverse_inplace
+PROGS   = integer_rotation strlen_reverse_inplace slice_view
 
 EXES    = $(addprefix $(BUILD)/,$(PROGS))
 OBJS    = $(addprefix $(BUILD)/,$(addsuffix .o,$(PROGS)))
