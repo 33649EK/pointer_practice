@@ -1,21 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node
-{
+struct Node {
     int x;
-    struct Node *next;
+    struct Node* next;
 };
 
 // Need double pointer for head node
-void push_front(struct Node **head, int value)
-{
+void push_front(struct Node** head, int value) {
     // struct Node new_head = {value, *head};
     // *head = &new_head;
 
-    struct Node *new = malloc(sizeof *new);
-    if (!new)
-    {
+    struct Node* new = malloc(sizeof *new);
+    if (!new) {
         perror("Malloc");
         exit(1);
     }
@@ -25,20 +22,17 @@ void push_front(struct Node **head, int value)
     *head = new;
 }
 
-int main(void)
-{
-
+int main(void) {
     struct Node list = {12, NULL};
-    struct Node *head = &list;
+    struct Node* head = &list;
 
     int new_value = 49;
 
     push_front(&head, new_value);
 
-    struct Node *next_node = list.next;
-    struct Node *current_node = &list;
-    while (current_node != NULL)
-    {
+    struct Node* next_node = list.next;
+    struct Node* current_node = &list;
+    while (current_node != NULL) {
         printf("%d ", current_node->x);
         current_node = next_node;
         next_node = current_node->next;
